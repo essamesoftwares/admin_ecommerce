@@ -51,23 +51,26 @@ class _OrdersState extends State<Orders> {
             style: TextStyle(color: Colors.white),
           ),
         ),
-        body: Container(
-            child: ListView.builder(
-                itemCount: orderList.length,
-                itemBuilder: (context, index) {
-                  return Card(
-                    child: ListTile(
-                      title:
-                          Text('Amount Status: ${orderList[index]()['status']}'),
-                      subtitle:
-                          Text('₹${orderList[index]()['total'].toString()}'),
-                      leading: CircleAvatar(
-                        child: Image(
-                          image: AssetImage('assets/Profile_Image.png'),
+        body: GestureDetector(
+          onTap: (){},
+          child: Container(
+              child: ListView.builder(
+                  itemCount: orderList.length,
+                  itemBuilder: (context, index) {
+                    return Card(
+                      child: ListTile(
+                        title:
+                            Text('Amount Status: ${orderList[index]()['status']}'),
+                        subtitle:
+                            Text('₹${orderList[index]()['total'].toString()}'),
+                        leading: CircleAvatar(
+                          child: Image(
+                            image: AssetImage('images/Profile_Image.png'),
+                          ),
                         ),
                       ),
-                    ),
-                  );
-                })));
+                    );
+                  })),
+        ));
   }
 }

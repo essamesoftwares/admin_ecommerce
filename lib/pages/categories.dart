@@ -60,7 +60,7 @@ class _CategoriesState extends State<Categories> {
                       title: Text(catList[index]()['category']),
                       leading: CircleAvatar(
                         child: Image(
-                          image: AssetImage('assets/Profile_Image.png'),
+                          image: AssetImage('images/Profile_Image.png'),
                         ),
                       ),
                     ),

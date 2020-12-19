@@ -61,7 +61,7 @@ class _UsersState extends State<Users> {
                       subtitle: Text(userProfilesList[index]()['email']),
                       leading: CircleAvatar(
                         child: Image(
-                          image: AssetImage('assets/Profile_Image.png'),
+                          image: AssetImage('images/Profile_Image.png'),
                         ),
                       ),
                     ),

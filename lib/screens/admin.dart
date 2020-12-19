@@ -1,3 +1,4 @@
+import 'package:admin_ecommerce/pages/Usernew.dart';
 import 'package:admin_ecommerce/pages/brands.dart';
 import 'package:admin_ecommerce/pages/categories.dart';
 import 'package:admin_ecommerce/pages/orders.dart';
@@ -101,7 +102,7 @@ class _AdminState extends State<Admin> {
                       child: GestureDetector(
                         onTap: () {
                           Navigator.push(context,
-                              MaterialPageRoute(builder: (context) => Users()));
+                              MaterialPageRoute(builder: (context) => UserList()));
                         },
                         child: Container(
                           //margin: EdgeInsets.only(bottom: 350),
@@ -305,91 +306,6 @@ class _AdminState extends State<Admin> {
                   ],
                 ),
               ),
-
-              // child: GridView(
-              //   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              //       crossAxisCount: 2),
-              //   children: <Widget>[
-              //     Padding(
-              //       padding: const EdgeInsets.all(18.0),
-              //       child: Card(
-              //         child: ListTile(
-              //             title: FlatButton.icon(
-              //                 onPressed: () {
-              //                   Navigator.push(context,
-              //                       MaterialPageRoute(builder: (_) => Users()));
-              //                 },
-              //                 icon: Icon(Icons.people_outline),
-              //                 label: Flexible(child: Text("Users"))),
-              //             subtitle: Text(
-              //               '7',
-              //               textAlign: TextAlign.center,
-              //               style: TextStyle(color: active, fontSize: 60.0),
-              //             )),
-              //       ),
-              //     ),
-              //     Padding(
-              //       padding: const EdgeInsets.all(18.0),
-              //       child: Card(
-              //         child: ListTile(
-              //             title: FlatButton.icon(
-              //                 onPressed: () {
-              //                   Navigator.push(
-              //                       context,
-              //                       MaterialPageRoute(
-              //                           builder: (_) => Categories()));
-              //                 },
-              //                 icon: Icon(Icons.category),
-              //                 label: Flexible(child: Text("Categories"))),
-              //             subtitle: Text(
-              //               '23',
-              //               textAlign: TextAlign.center,
-              //               style: TextStyle(color: active, fontSize: 60.0),
-              //             )),
-              //       ),
-              //     ),
-              //     Padding(
-              //       padding: const EdgeInsets.all(22.0),
-              //       child: Card(
-              //         child: ListTile(
-              //             title: FlatButton.icon(
-              //                 onPressed: () {
-              //                   Navigator.push(
-              //                       context,
-              //                       MaterialPageRoute(
-              //                           builder: (_) => Products()));
-              //                 },
-              //                 icon: Icon(Icons.track_changes),
-              //                 label: Flexible(child: Text("Products"))),
-              //             subtitle: Text(
-              //               '120',
-              //               textAlign: TextAlign.center,
-              //               style: TextStyle(color: active, fontSize: 60.0),
-              //             )),
-              //       ),
-              //     ),
-              //     Padding(
-              //       padding: const EdgeInsets.all(22.0),
-              //       child: Card(
-              //         child: ListTile(
-              //             title: FlatButton.icon(
-              //                 onPressed: () {
-              //                   Navigator.push(
-              //                       context,
-              //                       MaterialPageRoute(
-              //                           builder: (_) => Orders()));
-              //                 },
-              //                 icon: Icon(Icons.shopping_cart),
-              //                 label: Flexible(child: Text("Orders"))),
-              //             subtitle: Text(
-              //               '5',
-              //               textAlign: TextAlign.center,
-              //               style: TextStyle(color: active, fontSize: 60.0),
-              //             )),
-              //       ),
-              //     ),
-              //   ],
-              // ),
             ),
           ],
         );

@@ -61,7 +61,7 @@ class _BrandsState extends State<Brands> {
                       // subtitle: Text(brandList[index]['email']),
                       leading: CircleAvatar(
                         child: Image(
-                          image: AssetImage('assets/Profile_Image.png'),
+                          image: AssetImage('images/Profile_Image.png'),
                         ),
                       ),
                     ),
