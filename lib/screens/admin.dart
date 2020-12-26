@@ -1,13 +1,11 @@
-import 'package:admin_ecommerce/pages/Usernew.dart';
 import 'package:admin_ecommerce/pages/brands.dart';
 import 'package:admin_ecommerce/pages/categories.dart';
 import 'package:admin_ecommerce/pages/orders.dart';
 import 'package:admin_ecommerce/pages/products.dart';
 import 'package:admin_ecommerce/pages/users.dart';
+import 'package:admin_ecommerce/screens/add_category.dart';
 import 'package:admin_ecommerce/screens/add_product.dart';
-import 'package:admin_ecommerce/db/category.dart';
 import 'package:admin_ecommerce/db/brand.dart';
-
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
@@ -24,10 +22,9 @@ class _AdminState extends State<Admin> {
   MaterialColor notActive = Colors.grey;
   TextEditingController categoryController = TextEditingController();
   TextEditingController brandController = TextEditingController();
-  GlobalKey<FormState> _categoryFormKey = GlobalKey();
   GlobalKey<FormState> _brandFormKey = GlobalKey();
   BrandService _brandService = BrandService();
-  CategoryService _categoryService = CategoryService();
+  bool isLoading = false;
 
   @override
   Widget build(BuildContext context) {
@@ -102,7 +99,7 @@ class _AdminState extends State<Admin> {
                       child: GestureDetector(
                         onTap: () {
                           Navigator.push(context,
-                              MaterialPageRoute(builder: (context) => UserList()));
+                              MaterialPageRoute(builder: (context) => Users()));
                         },
                         child: Container(
                           //margin: EdgeInsets.only(bottom: 350),
@@ -335,7 +332,10 @@ class _AdminState extends State<Admin> {
               leading: Icon(Icons.add_circle),
               title: Text("Add category"),
               onTap: () {
-                _categoryAlert();
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => AddCategory()));
               },
             ),
             Divider(),
@@ -373,49 +373,14 @@ class _AdminState extends State<Admin> {
     }
   }
 
-  void _categoryAlert() {
-    var alert = new AlertDialog(
-      content: Form(
-        key: _categoryFormKey,
-        child: TextFormField(
-          controller: categoryController,
-          validator: (value) {
-            if (value.isEmpty) {
-              return 'category cannot be empty';
-            }
-            return null;
-          },
-          decoration: InputDecoration(hintText: "add category"),
-        ),
-      ),
-      actions: <Widget>[
-        FlatButton(
-            onPressed: () {
-              if (categoryController.text.isNotEmpty) {
-                _categoryService.createCategory(categoryController.text);
-                Fluttertoast.showToast(msg: 'category created');
-                categoryController.text = "";
-              } else {
-                Fluttertoast.showToast(msg: 'category cannot be empty');
-              }
-            },
-            child: Text('ADD')),
-        FlatButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            child: Text('CANCEL')),
-      ],
-    );
 
-    showDialog(context: context, builder: (_) => alert);
-  }
 
   void _brandAlert() {
     var alert = new AlertDialog(
       content: Form(
         key: _brandFormKey,
         child: TextFormField(
+          textCapitalization: TextCapitalization.sentences,
           controller: brandController,
           validator: (value) {
             if (value.isEmpty) {

@@ -138,6 +138,7 @@ class _AddProductState extends State<AddProduct> {
                 padding: const EdgeInsets.all(12.0),
                 child: TextFormField(
                   controller: productNameController,
+                  textCapitalization: TextCapitalization.sentences,
                   decoration: InputDecoration(hintText: 'Product name'),
                   validator: (value) {
                     if (value.isEmpty) {

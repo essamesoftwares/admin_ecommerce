@@ -5,11 +5,11 @@ class CategoryService {
   FirebaseFirestore _firestore = FirebaseFirestore.instance;
   String ref = 'categories';
 
-  void createCategory(String name) {
+  void createCategory(Map<String, dynamic> data) {
     var id = Uuid();
     String categoryId = id.v1();
-
-    _firestore.collection(ref).doc(categoryId).set({'category': name});
+    data["id"] = categoryId;
+    _firestore.collection(ref).doc(categoryId).set(data);
   }
 
   Future<List<DocumentSnapshot>> getCategories() =>

@@ -12,9 +12,10 @@ class UserService {
   }
 
   Future updateUserList(String name, String email, String uid) async {
-    return await profileList
-        .doc(uid)
-        .update({'name': name, 'email': email});
+    return await profileList.doc(uid).update({
+      'name': name,
+      'email': email,
+    });
   }
 
   Future getUsersList() async {
