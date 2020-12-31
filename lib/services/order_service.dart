@@ -4,7 +4,7 @@ class OrderService {
   final CollectionReference ordersList =
   FirebaseFirestore.instance.collection('orders');
 
-  Future<void> createUserData(
+  Future<void> createOrderData(
       String status, String total, String userId, String uid) async {
     return await ordersList.doc(uid).set({
       'status': status,
@@ -13,16 +13,18 @@ class OrderService {
     });
   }
 
-  Future updateUserList(
-      String status, String total, String userId, String uid) async {
-    return await ordersList.doc(uid).set({
+  Future updateOrderList(
+      String status, String id) async {
+    return await ordersList.doc(id).set({
       'status': status,
-      'total': total,
-      'userId': userId,
     });
   }
 
-  Future getUsersList() async {
+  Future deleteOrderList(String id) async {
+    return await ordersList.doc(id).delete();
+  }
+
+  Future getOrdersList() async {
     List itemsList = [];
 
     try {

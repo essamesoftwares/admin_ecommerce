@@ -4,14 +4,18 @@ class CategoryService {
   final CollectionReference categoryList =
   FirebaseFirestore.instance.collection('categories');
 
-  Future<void> createUserData(String category, String uid) async {
-    return await categoryList.doc(uid).set({
+  Future<void> createUserData(String category, String id) async {
+    return await categoryList.doc(id).set({
       'category': category,
     });
   }
 
-  Future updateUserList(String name, String uid) async {
-    return await categoryList.doc(uid).update({'name': name});
+  Future updateCategoryList(String name,String image, String id) async {
+    return await categoryList.doc(id).update({'category': name, 'image': image});
+  }
+
+  Future deleteCategoryList(String id) async {
+    return await categoryList.doc(id).delete();
   }
 
   Future getCategoriesList() async {

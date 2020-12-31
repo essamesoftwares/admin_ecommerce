@@ -10,8 +10,12 @@ class BrandService {
     });
   }
 
-  Future updateBrandList(String brand, String uid) async {
-    return await brandsList.doc(uid).update({'brand': brand});
+  Future updateBrandList(String brand, String brandId) async {
+    return await brandsList.doc(brandId).update({'brand': brand});
+  }
+
+  Future deleteProductList(String brandId) async {
+    return await brandsList.doc(brandId).delete();
   }
 
   Future getBrandsList() async {

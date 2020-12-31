@@ -18,6 +18,10 @@ class UserService {
     });
   }
 
+  Future deleteUserList(String uid) async {
+    return await profileList.doc(uid).delete();
+  }
+
   Future getUsersList() async {
     List itemsList = [];
 
